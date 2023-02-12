@@ -1,0 +1,56 @@
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bloco {
+    border-bottom: 1px solid #000;
+    padding-bottom: 2rem;
+}
+
+.titulo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+}
+
+.subtitulo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.75rem;
+}
+
+.text-default {
+    font-size: 1.25rem;
+}
+
+#show-chamada {
+    color: #be0000;
+}
+
+#campo-hora-chamada {
+    color: #777;
+}
+
+.input-default {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    padding: 0.5em;
+    margin-right: 1rem;
+    border: 1px solid #777;
+}
+
+.bt-default {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #016ABC;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+    padding: 0.8em;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.bt-default:hover {
+    background: #a2d5fe;
+}

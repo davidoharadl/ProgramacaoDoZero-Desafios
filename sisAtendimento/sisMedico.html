@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Atendimento</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <section class="bloco">
+        <h1 class="titulo">Sistema de Chamada</h1>
+        <h3 class="subtitulo">Incluir paciente:</h3>
+        <label class="text-default" for="nome">Nome:</label>
+        <input class="input-default" type="text" name="nome" id="input-nome" required/>
+        <label class="text-default" for="nome">Data:</label>
+        <input class="input-default" type="date" name="data" id="input-data" required/>
+        <button id="bt-add" class="bt-default">Adicionar</button>
+    </section>
+    <section class="bloco">
+        <h1 class="titulo">Chamada de Pacientes</h1>
+        <button id="bt-chamar-proximo" class="bt-default">Chamar Proximo</button>
+        <h3 id="show-chamada" class="subtitulo"></h3>
+        <h5 id="campo-hora-chamada"></h5>
+        
+    </section>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
