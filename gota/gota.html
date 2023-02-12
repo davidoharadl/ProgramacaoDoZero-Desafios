@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p class="text-default">Pressione o botao toda vez que a gota cair</p>
+        <button id="gota">Gota</button>
+        <h1>ml Por minuto</h1>
+        <h3 id="ml-por-minuto"></h3>
+        <h1>Gtts Por minuto</h1>
+        <h3 id="gtts-por-minuto"></h3>
+
+
+        <script type="text/javascript">
+            const LIMIT_CLICK = 4;
+            const GOTA_ML = 0.05;
+            let gotaTimestamp = [];
+            let gotaIntervals = [];
+            let mediaTempoGota = 0;
+            let gttPorMin = 0;
+            let mlPorMin = 0;
+
+            function limparDados() {
+                gotaTimestamp = [];
+                gotaIntervals = [];
+                mediaTempoGota = 0;
+                gttPorMin = 0;
+                mlPorMin = 0;
+            }
+
+            function calcMedia() {
+                let total = 0;
+                //alimenta o gota intervals
+                for (let index = 1; index < gotaTimestamp.length; index++) {
+                    const interval = gotaTimestamp[index] - gotaTimestamp[index-1];
+                    gotaIntervals.push(interval);
+                }
+
+                gotaIntervals.forEach(element => {
+                    total += element;
+                    
+                });
+                const MEDIA = total / gotaIntervals.length;
+                return MEDIA;
+            }
+
+            function calculaValores() {
+                let gotasPorMin = Math.floor((60 * 1000) / mediaTempoGota); 
+                mlPorMin = gotasPorMin * GOTA_ML;
+                gttPorMin = gotasPorMin;
+                document.querySelector("#ml-por-minuto").textContent = mlPorMin;
+                document.querySelector("#gtts-por-minuto").textContent = gttPorMin;
+            }
+
+            function gota() {
+                gotaTimestamp.push(+new Date());
+
+                if (gotaTimestamp.length == LIMIT_CLICK) {
+                    mediaTempoGota = calcMedia();
+                    calculaValores();
+                    limparDados();
+                }
+            }      
+            
+            document.querySelector("#gota").addEventListener('click', gota);
+        </script>
+    </body>
+</html>
