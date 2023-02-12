@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cores</title>
+    <style>
+        #bt-gerar-cor {
+            color: #ccc;
+            background-color: rgb(32, 32, 32);
+            padding: 10px 20px;
+            border: 1px solid rgb(214, 214, 214);
+            cursor: pointer;
+            transition: 500ms;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        #bt-gerar-cor:hover {
+            border: 1px solid rgb(32, 32, 32);
+            background-color: rgb(214, 214, 214);
+            color: rgb(32, 32, 32);
+
+        }
+
+        #cor {
+            width: 150px;
+            height: 150px;
+            margin-top: 15px;
+            text-align: center;
+            padding-top: 10px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 1px 1px 1px #fff;
+        }
+    </style>
+</head>
+<body>
+    <button id="bt-gerar-cor"> Gerar COR</button>
+    <div id="cor">COR</div>
+    <div id="resultado">
+        <p>Cor:</p><p id="show-color"></p>
+    </div>
+    
+    
+    <script type="text/javascript">
+        const min = 0;
+        const max = 255;
+
+        function gerarNum(nMin, nMax) {
+            return parseInt(Math.floor(Math.random() * ((nMax+1) - nMin) + 0));
+        }
+
+        function enviarShowColor(rgb) {
+            const pShowColor = document.querySelector("#show-color");
+            pShowColor.textContent = rgb;
+        }
+
+        function gerarCor() {
+            let newCor = `rgb(${gerarNum(min, max)}, ${gerarNum(min, max)}, ${gerarNum(min, max)})`;
+            document.querySelector("#cor").style.backgroundColor = newCor;
+            enviarShowColor(newCor)
+        }
+
+        
+        document.querySelector('#bt-gerar-cor').addEventListener('click', gerarCor)
+    </script>
+</body>
+</html>
