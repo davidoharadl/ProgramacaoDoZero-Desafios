@@ -126,7 +126,7 @@ class JogoMatematico {
 
     ganharVida() {
        if(this.vidas < 3 && this.pontuacao % 50 == 0) {
-            this.vida++;
+            this.vidas++;
             this.informeAumentoDeVida();
        }
     }
